@@ -18,12 +18,14 @@ jobs:
 
       - name: Instalar dependências
         run: npm ci
+        working-directory: ./my-react-app
 
       - name: Build do projeto
         run: npm run build
+        working-directory: ./my-react-app
 
       - name: Deploy com gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./my-react-app/dist
